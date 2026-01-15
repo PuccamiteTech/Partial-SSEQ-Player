@@ -93,7 +93,7 @@ Event SSEQ::read_event(std::vector<char>& d, int& i){
 		int instrument = instr_bank & 0x00ff; //instrument
 		int bank = (instr_bank & 0x3f00) >> 8; //bank
 		return Event(type, instrument, bank);
-	} else if (Event::NOTE_LOW <= type && type <= Event::NOTE_HIGH){
+	} else if (/*Event::NOTE_LOW <= type &&*/ type <= Event::NOTE_HIGH){
 		int velocity = static_cast<unsigned char>(d[i]);
 		++i;
 		int duration = variable_length(d, i);
@@ -430,7 +430,7 @@ std::string Event::info(){
 		info += " Volume " + std::to_string(value1);
 	} else if (type == Event::BANK){
 		info += " Bank [Prog.No:" + as_hex(value1) + ", Bank:" + std::to_string(value2) + "]";
-	} else if (Event::NOTE_LOW <= type && type <= Event::NOTE_HIGH){
+	} else if (/*Event::NOTE_LOW <= type &&*/ type <= Event::NOTE_HIGH){
 		info += " Note O" + std::to_string(type / 12 - 1) + notes.at(type % 12) + " [Velocity: " + std::to_string(value1) + ", Duration: " + std::to_string(value2) + "]";
 	} else if (type == Event::REST){
 		info += " Rest [Duration:" + std::to_string(value1) + "]";
