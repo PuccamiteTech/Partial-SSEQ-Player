@@ -237,7 +237,7 @@ void SSEQ::mml(std::string mml){
 	std::vector<int> loop_starts{};
 	
 	std::map<std::string, std::string> macros;
-	bool is_tied;
+	bool is_tied = false;
 	int gate_time = 8;
 	
 	while (index < (int)mml.length()){

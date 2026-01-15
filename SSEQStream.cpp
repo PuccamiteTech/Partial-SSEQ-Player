@@ -368,7 +368,7 @@ short SSEQStream::get_sample(Channel& channel, NoteEvent& note_event){
 		current_noise_frame += note_shift;
 		//Taken from GBATEK
 		//X=X SHR 1, IF carry THEN Out=LOW, X=X XOR 6000h ELSE Out=HIGH
-		bool carry;
+		bool carry = false;
 		while (current_noise_frame >= 1){
 			carry = (current_noise & 0x01) > 0;
 			current_noise >>= 1;
