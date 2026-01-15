@@ -4,7 +4,7 @@
 #INCLUDE=include/
 
 # (Windows) Modify SFML_PATH if you have a different installation location.
-SFML_PATH="C:/SFML-2.5.1/"
+SFML_PATH="C:/SFML-2.6.2/"
 SFML_INCLUDE=$(SFML_PATH)include/
 SFML_LIB=$(SFML_PATH)lib/
 
